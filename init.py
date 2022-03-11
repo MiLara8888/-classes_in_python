@@ -108,3 +108,34 @@ class Person:
 p1 = Person('Jimi', 'Hendrix', 55)
 print(p1.full_name())  # выводит "Hendrix Jimi"
 print(p1.is_adult())  # выводит "True"
+
+
+
+
+
+# Создайте класс Soda (для определения типа газированной воды), принимающий 1 аргумент при инициализации
+# (отвечающий за добавку к выбираемому лимонаду).
+# В этом классе реализуйте метод show_my_drink(), выводящий на печать «Газировка и {ДОБАВКА}» в случае наличия добавки,
+# а иначе отобразится следующая фраза: «Обычная газировка».
+
+class Soda:
+    def __init__(self, topping=None):
+        if isinstance(topping, str):
+            self.topping = topping
+        else:
+            self.topping = None
+
+    def show_my_drink(self):
+        if self.topping:
+            print(f'Газировка и {self.topping}')
+        else:
+            print(f'Обычная газировка')
+
+
+drink1 = Soda()
+drink2 = Soda('малина')
+drink3 = Soda(5)
+drink1.show_my_drink()
+drink2.show_my_drink()
+drink3.show_my_drink()
+
