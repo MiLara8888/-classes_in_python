@@ -10,8 +10,10 @@ class Nikola:
     __slots__ = ('name', 'age')
 
     def __init__(self, name, age):
-        self.name='Николай'
-        self.age=age
+        self.name = name
+        if self.name != 'Николай':
+            self.name = f'Я не {self.name}, а Николай'
+        self.age = age
 
 
 person1 = Nikola('Иван', 31)
