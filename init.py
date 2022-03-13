@@ -139,3 +139,38 @@ drink1.show_my_drink()
 drink2.show_my_drink()
 drink3.show_my_drink()
 
+
+#_______________________________________________-
+# Николаю требуется проверить, возможно ли из представленных отрезков условной длины сформировать треугольник.
+# Для этого он решил создать класс TriangleChecker, принимающий только положительные числа.
+# С помощью метода is_triangle() возвращаются следующие значения (в зависимости от ситуации):
+# – Ура, можно построить треугольник!;
+# – С отрицательными числами ничего не выйдет!;
+# – Нужно вводить только числа!;
+# – Жаль, но из этого треугольник не сделать.
+class TriangleChecker:
+    def __init__(self, value):
+        self.value = value
+
+    def is_triangle(self):
+        if not all([isinstance(i,int) for i in self.value]):
+            return 'Нужно вводить только числа!'
+        if not all([i>0 for i in self.value]):
+            return 'С отрицательными числами ничего не выйдет!'
+        self.value=sorted(self.value)
+        if self.value[2]<(self.value[1]+self.value[0]):
+            return 'Ура, можно построить треугольник!'
+        return 'Жаль, но из этого треугольник не сделать.'
+
+
+
+
+triangle1 = TriangleChecker([2, 3, 4])
+print(triangle1)
+print(triangle1.is_triangle())
+triangle2 = TriangleChecker([77, 3, 4])
+print(triangle2.is_triangle())
+triangle3 = TriangleChecker([77, 3, 'Сторона3'])
+print(triangle3.is_triangle())
+triangle4 = TriangleChecker([77, -3, 4])
+print(triangle4.is_triangle())
